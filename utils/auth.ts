@@ -14,10 +14,7 @@ type FindOptions = {
   include?: undefined | Object
 }
 
-export const getUserByClerkID = async ({
-  select = {},
-  includes = {},
-}: UserOptions) => {
+export const getUserByClerkID = async ({ select, includes }: UserOptions) => {
   const { userId } = await auth()
 
   const options: FindOptions = {
