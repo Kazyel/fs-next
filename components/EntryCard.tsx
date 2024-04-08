@@ -13,16 +13,19 @@ export type EntryType = {
 }
 
 const EntryCard = ({ entry }: EntryType) => {
-  const date = new Date(entry.createdAt).toLocaleString()
+  const date = new Date(entry.updateAt).toLocaleString()
 
   return (
-    <div className="text-black divide-y divide-gray-200 overflow-hidden rounded bg-white">
-      <div className="px-4 py-3">{entry.analysis?.summary} Teste</div>
-      <div className="px-4 py-3">
-        {entry.analysis?.mood} Lorem ipsum dolor sit amet consectetur
-        adipisicing elit.
+    <div className="text-black overflow-hidden rounded bg-white">
+      <div className="px-4 pt-3 font-bold text-lg">
+        {entry.analysis?.summary} Teste
       </div>
-      <div className="px-4 py-3 text-end text-sm">{date}</div>
+      <div className="px-4 py-3 text-sm font-light">
+        {entry.analysis?.mood} {entry.content}
+      </div>
+      <div className="border-t px-4 py-3 text-end text-xs">
+        <span className="font-semibold">Last updated at:</span> {date}
+      </div>
     </div>
   )
 }

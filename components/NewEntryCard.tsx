@@ -13,11 +13,11 @@ const NewEntryCard = () => {
 
   return (
     <div
-      className="cursor-pointer overflow-hidden rounded-lg bg-white"
+      className="cursor-pointer max-h-[128px] min-w-[250px] overflow-hidden rounded-lg bg-violet-600"
       onClick={handleOnClick}
     >
       <div className="p-4">
-        <span className="text-2xl font-medium text-black">New Entry</span>
+        <span className="text-2xl font-medium text-white">New Entry</span>
       </div>
     </div>
   )
