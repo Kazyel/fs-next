@@ -12,6 +12,9 @@ const getEntry = async (id: string) => {
         id,
       },
     },
+    include: {
+      analysis: true,
+    },
   })
 
   if (!entry) {
@@ -27,19 +30,19 @@ const EntryPage = async ({ params }: ParamsType) => {
   const analysisData = [
     {
       name: 'Summary',
-      value: '',
+      value: entry.analysis?.summary,
     },
     {
       name: 'Subject',
-      value: '',
+      value: entry.analysis?.subject,
     },
     {
       name: 'Mood',
-      value: '',
+      value: entry.analysis?.mood,
     },
     {
       name: 'Negative',
-      value: 'false',
+      value: entry.analysis?.negative ? 'True' : 'False',
     },
   ]
 
@@ -49,7 +52,14 @@ const EntryPage = async ({ params }: ParamsType) => {
         <Editor entry={entry} />
       </div>
       <div>
-        <div className="bg-violet-600 px-4 py-5">
+        <div
+          style={
+            entry.analysis?.color
+              ? { backgroundColor: entry.analysis.color }
+              : {}
+          }
+          className="rounded-tr px-4 py-5"
+        >
           <h2 className="font-semibold text-xl">Analysis</h2>
         </div>
         <div>

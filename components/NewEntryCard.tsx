@@ -13,7 +13,7 @@ const NewEntryCard = () => {
 
   return (
     <div
-      className="cursor-pointer max-h-[128px] min-w-[250px] overflow-hidden rounded-lg bg-violet-600"
+      className="cursor-pointer max-h-[128px] min-w-[250px] overflow-hidden rounded-lg bg-violet-600 hover:bg-violet-500 transition-all duration-150"
       onClick={handleOnClick}
     >
       <div className="p-4">

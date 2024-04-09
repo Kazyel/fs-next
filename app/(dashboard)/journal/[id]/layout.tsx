@@ -13,7 +13,23 @@ const Layout = ({
       <div className="ml-[200px] h-full">
         <header className="h-[60px] pl-4 border-b flex border-white/20">
           <div className="w-full flex items-center">
-            <Link href="/journal">Back to Journal</Link>
+            <Link href="/journal" className="flex group gap-2 pl-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 group-hover:-translate-x-1 transition-all duration-100"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                />
+              </svg>
+              Back to Journal
+            </Link>
           </div>
           <div className="h-full w-full px-6 flex items-center justify-end">
             <UserButton />

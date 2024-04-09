@@ -22,8 +22,9 @@ const Editor = ({ entry }: EntryType) => {
   return (
     <div className="w-full h-full relative">
       <textarea
-        className="w-full h-full p-8 text-lg border rounded border-neutral-600/75 resize-none bg-black outline-none focus:border-neutral-500/85"
+        className="w-full h-full p-8 text-lg border rounded-l rounded-br border-neutral-600/75 resize-none bg-black outline-none focus:border-neutral-500/85"
         value={textContent}
+        placeholder={"Write something... your life isn't this boring."}
         onChange={(e) => setTextContent(e.target.value)}
       />
       {isSaving ? (

@@ -29,14 +29,18 @@ model JournalEntry {
 }
 
 model Analysis {
-  id        String       @id @default(uuid())
-  createdAt DateTime     @default(now())
-  updateAt  DateTime     @updatedAt
-  entryId   String
-  entry     JournalEntry @relation(fields: [entryId], references: [id])
-  mood      String
-  summary   String       @db.Text
-  negative  Boolean
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  entryId String
+  entry   JournalEntry @relation(fields: [entryId], references: [id])
+
+  mood     String
+  summary  String  @db.Text
+  color    String
+  subject  String
+  negative Boolean
 
   @@unique([entryId])
 }

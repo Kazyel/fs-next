@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { analyze } from '@/utils/ai'
 import { getUserByClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import EntryCard from '@/components/EntryCard'
@@ -14,9 +13,11 @@ const getEntries = async () => {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      analysis: true,
+    },
   })
 
-  // await analyze('O que é a vida?')
   return entries
 }
 
@@ -25,7 +26,7 @@ const JournalPage = async () => {
 
   return (
     <>
-      <h2 className="text-4xl font-semibold mb-8">Your Journal</h2>
+      <h2 className="text-4xl font-semibold mb-6">Your Journal</h2>
       <div className="grid grid-cols-3 gap-4 py-10">
         <NewEntryCard />
 
